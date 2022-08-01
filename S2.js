@@ -50,7 +50,7 @@ console.log(text);
 
 // Ternary operator example
 
-const speed = 90;
+const speed = 150;
 let message;
 
 message = speed > 100 ? 'You\'re going very fast' : 'You\'re going at the right speed';
@@ -60,5 +60,7 @@ message = speed > 100 ? 'You\'re going very fast' : 'You\'re going at the right 
 //     message = 'You\'re going at the right speed'
 // }
 console.log(message);
-const isFast = speed > 100 ? true : false;
+
+// const isFast = speed > 100 ? true : false;
+const isFast = speed > 100;
 console.log('Are you really going so fast?', speed, 'km/h,', isFast);
