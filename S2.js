@@ -64,3 +64,27 @@ console.log(message);
 // const isFast = speed > 100 ? true : false;
 const isFast = speed > 100;
 console.log('Are you really going so fast?', speed, 'km/h,', isFast);
+
+// Loop example
+
+// for (let index = 0; index < 200; index++) {
+//     if (index === 198) continue
+//     console.log('Hello world!', index)
+// }
+
+// CHALLENGE 2 - Print 0 - 100 pair numbers
+
+for (let index = 0; index <= 100; index++) {
+    // if (index % 2 === 0) console.log('Pair number', index)
+    if (!(index % 2)) console.log('Pair number', index)
+}
+
+// CHALLENGE 3 - Print 000 primmbers
+
+for (let counter = 2; counter <= 100; counter++) {
+    let isPrime = true;
+    for (let index = 2; index <= counter; index++){
+        if(counter % index === 0 && index !== counter) isPrime = false;
+    }
+    if (isPrime) console.log('Prime number', counter)
+}
