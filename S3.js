@@ -23,14 +23,46 @@
 
 // CHALLENGE 1 - for the given array, get the average
 
-const numbers = [5, 3, 4, 7, 2, 1, 9, 7, 7];
-let sum = 0;
-for (const num of numbers){
-    sum = num + sum
-}
-const average = sum / numbers.length;
-console.log('The average of the array\'s elements is:', average);
-// Alternative solution
-// for (let index = 0; index < numbers.length; index++) {
-//     sum = sum + numbers[index];
+// const numbers = [5, 3, 4, 7, 2, 1, 9, 7, 7];
+// let sum = 0;
+// for (const num of numbers){
+//     sum = num + sum
 // }
+// const average = sum / numbers.length;
+// console.log('The average of the array\'s elements is:', average);
+// // Alternative solution
+// // for (let index = 0; index < numbers.length; index++) {
+// //     sum = sum + numbers[index];
+// // }
+
+
+
+// OBJECTS - Introduction
+
+const john = {
+    firstName: 'John',
+    lastName: 'Doe',
+    birthYear: 1990
+}
+console.log(john.firstName);
+console.log(john['lastName'])
+
+john.firstName = 'Jane'
+john['lastName'] = 'Does'
+console.log(john.firstName);
+console.log(john.lastName);
+
+// Example 1 - Convert an object into an array
+
+const car = {
+    brand: 'Nissan',
+    model: 'Versa',
+    year: 2020
+}
+// Result: [['brand', 'Nissan'], ['model', 'Versa'], ['year', 2020]]
+const keys = Object.keys(car); // ['brand', 'model', 'year']
+const pairs = []
+for (let i = 0; i < keys.length; i++){
+    pairs.push( [keys[i], car[keys[i]]] )
+}
+console.log(pairs)
