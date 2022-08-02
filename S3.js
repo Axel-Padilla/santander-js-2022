@@ -59,10 +59,23 @@ const car = {
     model: 'Versa',
     year: 2020
 }
-// Result: [['brand', 'Nissan'], ['model', 'Versa'], ['year', 2020]]
+// Solution: [['brand', 'Nissan'], ['model', 'Versa'], ['year', 2020]]
 const keys = Object.keys(car); // ['brand', 'model', 'year']
 const pairs = []
 for (let i = 0; i < keys.length; i++){
     pairs.push( [keys[i], car[keys[i]]] )
 }
 console.log(pairs)
+
+// CHALLENGE 2 - Convert pairs to an object
+// Solution: const auto = {
+//     brand: 'Nissan',
+//     model: 'Versa',
+//     year: 2020
+// }
+const auto = {}
+for (let i = 0; i < pairs.length; i++) {
+    auto[pairs[i][0]] = pairs[i][1];
+}
+console.log(auto)
+
