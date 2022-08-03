@@ -28,21 +28,62 @@
 
 // FUNCTION EXPRESSION
 
-const whatDoYouDo = function(job, name) { // without name
-    switch (job) {
-        case 'developer':
-            return name + ' develops cool apps...'
+// const whatDoYouDo = function(job, name) { // without name
+//     switch (job) {
+//         case 'developer':
+//             return name + ' develops cool apps...'
         
-        case 'developer':
-            return name + ' designs awesome websites...'
+//         case 'developer':
+//             return name + ' designs awesome websites...'
             
-        default:
-            return name + ' does something else'
-    }
-}
-console.log(whatDoYouDo('developer', 'Axel'))
+//         default:
+//             return name + ' does something else'
+//     }
+// }
+// console.log(whatDoYouDo('developer', 'Axel'))
 
-const factorial = function fact(num) {
-    return num < 2 ? 1 : num * fact(num - 1)
+// const factorial = function fact(num) {
+//     return num < 2 ? 1 : num * fact(num - 1)
+// }
+// console.log(factorial(5))
+
+// IIFE - Inmediately Invoked Function Expression
+
+(function() {
+    const name = 'John Doe';
+    console.log(name);
+})()
+
+// Arrow function
+
+// Function example
+// const firstNames = ['John', 'Jane', 'Mark'];
+// function getFullNames(names){
+//     const fullNames = [];
+//     for (const name of names) {
+//         fullNames.push(`${name} Doe`)
+//     }
+//     return fullNames
+// }
+
+// const fullNames = getFullNames(firstNames)
+// console.log(fullNames)
+
+// Arrow function example
+const firstNames = ['John', 'Jane', 'Mark'];
+
+const getFullNames = (names) => {
+    const fullNames = [];
+    for (const name of names) {
+        fullNames.push(`${name} Doe`)
+    }
+    return fullNames
 }
-console.log(factorial(5))
+
+const fullNames = getFullNames(firstNames)
+console.log(fullNames)
+
+// Arrow function without return
+
+const logName = name => console.log(`Hello ${name}`)
+logName('Axel');
