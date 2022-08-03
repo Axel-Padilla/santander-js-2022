@@ -65,7 +65,7 @@ const pairs = []
 for (let i = 0; i < keys.length; i++){
     pairs.push( [keys[i], car[keys[i]]] )
 }
-console.log(pairs)
+// console.log(pairs)
 
 // CHALLENGE 2 - Convert pairs to an object
 // Solution: const auto = {
@@ -79,3 +79,47 @@ for (let i = 0; i < pairs.length; i++) {
 }
 console.log(auto)
 
+// Spread Operator
+const colors = ['red', 'blue', 'green'];
+const myColors = [...colors]; //We generate a copy of the VALUES (not references) of colors array 
+console.log('colors', colors);
+console.log('myColors', myColors);
+
+colors[0] = 'pink'; //This just modify colors, not myColors
+console.log('colors', colors);
+console.log('myColors', myColors);
+
+// Spreading Operator with an object
+
+// const auto = {
+//     brand: 'Nissan',
+//     model: 'Versa',
+//     year: 2020
+// }
+const automovil = {...auto};
+console.log('auto', auto);
+console.log('automovil', automovil);
+
+auto.brand = 'Ford';
+console.log('auto', auto);
+console.log('automovil', automovil);
+
+// Joining two arrays
+const first = [1, 2, 3]
+const second = [4, 5, 6]
+// const todos = [...first, ...second]
+const todos = [...second, ...first]
+console.log(todos)
+
+// Joining two objects and overwriting a property
+
+const dealership = {
+    salesman: 'Jose',
+    office: 'Perisur'
+}
+const result = { //Joining auto and dealership
+    ...auto,
+    ...dealership,
+    year: 2022
+}
+console.log(result)
