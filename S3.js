@@ -39,87 +39,118 @@
 
 // OBJECTS - Introduction
 
-const john = {
+// const john = {
+//     firstName: 'John',
+//     lastName: 'Doe',
+//     birthYear: 1990
+// }
+// console.log(john.firstName);
+// console.log(john['lastName'])
+
+// john.firstName = 'Jane'
+// john['lastName'] = 'Does'
+// console.log(john.firstName);
+// console.log(john.lastName);
+
+// // Example 1 - Convert an object into an array
+
+// const car = {
+//     brand: 'Nissan',
+//     model: 'Versa',
+//     year: 2020
+// }
+// // Solution: [['brand', 'Nissan'], ['model', 'Versa'], ['year', 2020]]
+// const keys = Object.keys(car); // ['brand', 'model', 'year']
+// const pairs = []
+// for (let i = 0; i < keys.length; i++){
+//     pairs.push( [keys[i], car[keys[i]]] )
+// }
+// // console.log(pairs)
+
+// // CHALLENGE 2 - Convert pairs to an object
+// // Solution: const auto = {
+// //     brand: 'Nissan',
+// //     model: 'Versa',
+// //     year: 2020
+// // }
+// const auto = {}
+// for (let i = 0; i < pairs.length; i++) {
+//     auto[pairs[i][0]] = pairs[i][1];
+// }
+// console.log(auto)
+
+// // Spread Operator
+// const colors = ['red', 'blue', 'green'];
+// const myColors = [...colors]; //We generate a copy of the VALUES (not references) of colors array 
+// console.log('colors', colors);
+// console.log('myColors', myColors);
+
+// colors[0] = 'pink'; //This just modify colors, not myColors
+// console.log('colors', colors);
+// console.log('myColors', myColors);
+
+// // Spreading Operator with an object
+
+// // const auto = {
+// //     brand: 'Nissan',
+// //     model: 'Versa',
+// //     year: 2020
+// // }
+// const automovil = {...auto};
+// console.log('auto', auto);
+// console.log('automovil', automovil);
+
+// auto.brand = 'Ford';
+// console.log('auto', auto);
+// console.log('automovil', automovil);
+
+// // Joining two arrays
+// const first = [1, 2, 3]
+// const second = [4, 5, 6]
+// // const todos = [...first, ...second]
+// const todos = [...second, ...first]
+// console.log(todos)
+
+// // Joining two objects and overwriting a property
+
+// const dealership = {
+//     salesman: 'Jose',
+//     office: 'Perisur'
+// }
+// const result = { //Joining auto and dealership
+//     ...auto,
+//     ...dealership,
+//     year: 2022
+// }
+// console.log(result)
+
+// -------------------------------------------------------------------------
+// Destucturing (Deestrurar)
+
+const colors = ['red', 'blue', 'green'];
+const [Red, Blue, Green] = colors
+console.log(Red)
+console.log(Blue)
+console.log(Green)
+
+const person = {
     firstName: 'John',
     lastName: 'Doe',
-    birthYear: 1990
+    birthYear: 1990,
+    // job: 'Player'
+    job: {
+        type: 'Developer',
+        yearsWorking: 5
+    }
 }
-console.log(john.firstName);
-console.log(john['lastName'])
 
-john.firstName = 'Jane'
-john['lastName'] = 'Does'
-console.log(john.firstName);
-console.log(john.lastName);
+// const firstName = person.firstName;
+const {firstName: name, lastName, job = 'Developer'} = person;
+console.log('name:', name)
+console.log('lastName:', lastName)
+// console.log('job:', job)
+const working = person.job.yearsWorking
+console.log('yearsWorking:', working)
+const {job: {yearsWorking}} = person
+console.log('añosTrabajando:', yearsWorking)
 
-// Example 1 - Convert an object into an array
-
-const car = {
-    brand: 'Nissan',
-    model: 'Versa',
-    year: 2020
-}
-// Solution: [['brand', 'Nissan'], ['model', 'Versa'], ['year', 2020]]
-const keys = Object.keys(car); // ['brand', 'model', 'year']
-const pairs = []
-for (let i = 0; i < keys.length; i++){
-    pairs.push( [keys[i], car[keys[i]]] )
-}
-// console.log(pairs)
-
-// CHALLENGE 2 - Convert pairs to an object
-// Solution: const auto = {
-//     brand: 'Nissan',
-//     model: 'Versa',
-//     year: 2020
-// }
-const auto = {}
-for (let i = 0; i < pairs.length; i++) {
-    auto[pairs[i][0]] = pairs[i][1];
-}
-console.log(auto)
-
-// Spread Operator
-const colors = ['red', 'blue', 'green'];
-const myColors = [...colors]; //We generate a copy of the VALUES (not references) of colors array 
-console.log('colors', colors);
-console.log('myColors', myColors);
-
-colors[0] = 'pink'; //This just modify colors, not myColors
-console.log('colors', colors);
-console.log('myColors', myColors);
-
-// Spreading Operator with an object
-
-// const auto = {
-//     brand: 'Nissan',
-//     model: 'Versa',
-//     year: 2020
-// }
-const automovil = {...auto};
-console.log('auto', auto);
-console.log('automovil', automovil);
-
-auto.brand = 'Ford';
-console.log('auto', auto);
-console.log('automovil', automovil);
-
-// Joining two arrays
-const first = [1, 2, 3]
-const second = [4, 5, 6]
-// const todos = [...first, ...second]
-const todos = [...second, ...first]
-console.log(todos)
-
-// Joining two objects and overwriting a property
-
-const dealership = {
-    salesman: 'Jose',
-    office: 'Perisur'
-}
-const result = { //Joining auto and dealership
-    ...auto,
-    ...dealership,
-    year: 2022
-}
-console.log(result)
