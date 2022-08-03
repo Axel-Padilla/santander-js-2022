@@ -127,30 +127,49 @@
 // -------------------------------------------------------------------------
 // Destucturing (Deestrurar)
 
-const colors = ['red', 'blue', 'green'];
-const [Red, Blue, Green] = colors
-console.log(Red)
-console.log(Blue)
-console.log(Green)
+// const colors = ['red', 'blue', 'green'];
+// const [Red, Blue, Green] = colors
+// console.log(Red)
+// console.log(Blue)
+// console.log(Green)
+
+// const person = {
+//     firstName: 'John',
+//     lastName: 'Doe',
+//     birthYear: 1990,
+//     // job: 'Player'
+//     job: {
+//         type: 'Developer',
+//         yearsWorking: 5
+//     }
+// }
+
+// // const firstName = person.firstName;
+// const {firstName: name, lastName, job = 'Developer'} = person;
+// console.log('name:', name)
+// console.log('lastName:', lastName)
+// // console.log('job:', job)
+// const working = person.job.yearsWorking
+// console.log('yearsWorking:', working)
+// const {job: {yearsWorking}} = person
+// console.log('añosTrabajando:', yearsWorking)
+
+// CHALLENGE 3 - Get facebook and instagram, and rename to FB and IG
 
 const person = {
     firstName: 'John',
     lastName: 'Doe',
-    birthYear: 1990,
-    // job: 'Player'
-    job: {
-        type: 'Developer',
-        yearsWorking: 5
+    links: {
+      web: {
+        blog: 'https://johndoe.com'
+      }, 
+      social: {
+        facebook: 'https://facebook.com/john.doe',
+        instagram: 'https://instagram.com/john.doe'
+      } 
     }
-}
+  }
 
-// const firstName = person.firstName;
-const {firstName: name, lastName, job = 'Developer'} = person;
-console.log('name:', name)
-console.log('lastName:', lastName)
-// console.log('job:', job)
-const working = person.job.yearsWorking
-console.log('yearsWorking:', working)
-const {job: {yearsWorking}} = person
-console.log('añosTrabajando:', yearsWorking)
-
+  const {links: {social: {facebook:FB, instagram:IG}}} = person
+  console.log('Instagram:', IG)
+  console.log('Facebook:', FB)
