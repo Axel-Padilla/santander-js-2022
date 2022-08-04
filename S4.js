@@ -167,3 +167,18 @@ for (let i = 0; i <= limit1; i++) {
     serie1.push(fibonacci(i))
 }
 console.log(`Serie de Fibonacci desde el 0 hasta el ${limit1} es ${serie1}`)
+
+// Solution 3 - The most optimized
+
+function fibonacci1(num) {
+    if (num === 0) return 0;
+    if (num === 1) return 1;
+    return fibonacci1(num-1) + fibonacci1(num-2);
+}
+function secuence(limit2) {
+    if (limit2 < 1) return console.log('limit debe ser mayor que 0');
+    for (let i = 0; i <= limit2; i++) {
+        console.log(fibonacci1(i));
+    } 
+}
+secuence(5)
