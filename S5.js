@@ -57,25 +57,94 @@
     access even before initialize the function), in expressions we need to initialize at first. 
     NOTE: this happens with function calls, necessarily*/
 
-console.log(power(2,2)) // We get 4
-function power (base, exponent) {
-    let sum = 1;
-    for (let i = 0; i < exponent; i++) {
-        sum = sum * base
+// console.log(power(2,2)) // We get 4
+// function power (base, exponent) {
+//     let sum = 1;
+//     for (let i = 0; i < exponent; i++) {
+//         sum = sum * base
+//     }
+//     return sum;
+// }
+// console.log(power(2,2)) // We get 4
+
+// // Function expression (arrow function)
+// console.log(power1(2,2)) // We cannot access before initializing
+// const power1 = (base, exponent) => {
+//     let sum = 1;
+//     for (let i = 0; i < exponent; i++) {
+//         sum = sum * base
+//     }
+//     return sum;
+// }
+// console.log(power1(2,2)) // We get 4
+
+// THIS USAGE
+
+const john = {
+    firstName: 'John',
+    lastName: 'Doe',
+    birthYear: 1990,
+    calculateAge: () => {
+        const today = new Date()
+        const year = today.getFullYear()
+        // this.age = year - this.birthYear //this is pointing to window, not to john
+        this.age = year - john.birthYear
     }
-    return sum;
 }
-console.log(power(2,2)) // We get 4
+john.calculateAge()
+console.log(john)
+console.log(window.age) //age lives in window, not in john
 
-// Function expression (arrow function)
-console.log(power1(2,2)) // We cannot access before initializing
-const power1 = (base, exponent) => {
-    let sum = 1;
-    for (let i = 0; i < exponent; i++) {
-        sum = sum * base
+
+// CHALLENGE 1 - Complete the pluck function that extracts a propertys' list from an array with objects
+
+var singers = [
+    { name: 'Steven Tyler', band: 'Aerosmith', born: 1948 },
+    { name: 'Karen Carpenter', band: 'The Carpenters', born: 1950 },
+    { name: 'Kurt Cobain', band: 'Nirvana', born: 1967 },
+    { name: 'Chris Cornell', band: 'Soundgarden', born: 1964 },
+  ];
+  
+function pluck(list, propertyName) {
+    const result = []
+    for (let i = 0; i < list.length; i++) {
+        result.push(list[i][propertyName])
     }
-    return sum;
+    console.log(result)
 }
-console.log(power1(2,2)) // We get 4
+  
+  console.log( pluck(singers, 'name') );
+  // ["Steven Tyler", "Karen Carpenter", "Kurt Cobain", "Chris Cornell"]
+  
+  console.log( pluck(singers, 'band') );
+  // ["Aerosmith", "The Carpenters", "Nirvana", "Soundgarden"]
+  
+  console.log( pluck(singers, 'born') );
+  // [1948, 1950, 1967, 1964]
 
+// CHALLENGE 2 - Create a function that receives a 10 integer numbers array (0 - 9) and returns a string in phone number form
 
+function createPhoneNumber (numbers) {
+    phone = '(xxx) xxx - xxxx'
+    if (numbers.length > 10) {
+        console.log('You put more than 10 numbers, try again.')
+    } else {
+        let flag = true
+        for (const number of numbers) {
+            if (isNaN(number)) { //Check using of isNaN() with booleans, true and false are considered as numbers
+                console.log('You put something that is not a number.')
+                flag = false
+                break
+            } else if (number < 0 || number > 9) {
+                console.log('Your numbers are out of range to be a phone number.')
+                flag = false
+                break
+            } else {
+                phone = phone.replace('x', number)
+            }
+        }
+        flag === true ? console.log(phone) : console.log('Try again.')
+    }
+    
+}
+createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // "(123) 456-7890"
