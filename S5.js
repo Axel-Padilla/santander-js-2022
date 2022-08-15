@@ -148,3 +148,21 @@ function createPhoneNumber (numbers) {
     
 }
 createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // "(123) 456-7890"
+
+
+/* CHALLENGE 3 - Create a function that receives an n-integer numbers array (positives) 
+that can be messy, the function returns a new array with the missing numbers (1-10) from the first array */
+
+function findMissingNumbers (numbers) { //need to add protection to strings or negative numbers
+    const limit = Math.max(...numbers)
+    const newArray = [] 
+    for (let i = 1; i < limit; i++) {
+        let exist = false
+        numbers.forEach(number => {
+            if (number === i) exist = true
+        });
+        if (exist === false) newArray.push(i)
+    }    
+    console.log(newArray)
+}
+findMissingNumbers([2, 1, 9, 5, 7, 3, 10]) //[4, 6, 8]
